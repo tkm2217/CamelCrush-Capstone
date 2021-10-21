@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Navbar from "./components/navbar.component";
+import TrackerList from "./components/tracker-list.component";
+import EditTracker from "./components/edit-tracker.component";
+import CreateTracker from "./components/create-tracker.component";
+import CreateUser from "./components/create-user.component";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <br/>
+      <Route path="/" exact compnent ={TrackerList} />
+      <Route path="/edit/:id" exact compnent ={EditTracker} />
+      <Route path="/create" exact compnent ={CreateTracker} />
+      <Route path="/user" exact compnent ={CreateUser} />
+    </Router>
   );
 }
 
