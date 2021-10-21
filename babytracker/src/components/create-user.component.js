@@ -27,8 +27,8 @@ export default class CreateTracker extends Component {
 
         console.log(user);
         
-        this.setSate ({
-            username: ''
+        this.setState ({
+            username: '',
         })
     }
 
