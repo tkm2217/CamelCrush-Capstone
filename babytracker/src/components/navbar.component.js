@@ -16,7 +16,7 @@ render() {
                         <Link to="/create" className="nav-link">Create Tracker Log</Link>
                     </li>
                     <li className="navbar-item">
-                        <Link to="/user" className="nav-link">Create User</Link>
+                        <Link to="/user" className="nav-link">Create Baby</Link>
                     </li>
                 </ul>
             </div>
