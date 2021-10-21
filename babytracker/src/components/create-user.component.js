@@ -35,17 +35,20 @@ export default class CreateTracker extends Component {
     render()    {
         return (
             <div>
-                <h3>Create New User</h3>
+                <h3>Create New Baby Profile</h3>
                 <form onSubmit={this.onSubmit}>
                  <div className="form-group">
-                    <label> Baby Name: </label>
-                    <input type="text"
+                    <label>Baby Name: </label>
+                    <input  type="text"
                         required
                         className="form-contorl"
                         value={this.state.username}
                         onChange={this.onChangeUsername}
                         />     
-                </div>   
+                </div>
+                <div className="form-group">
+                        <input type= "submit" value="Create Baby" className="btn btn-primary" />
+                    </div>   
                 </form>
             </div>
         )
