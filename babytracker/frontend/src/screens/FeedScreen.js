@@ -403,4 +403,22 @@ function FeedScreen({ theme, route }) {
       );
     }
 
+    const styles = StyleSheet.create({
+        sectionContainer: {
+          borderBottomWidth: 1,
+          borderBottomColor: "grey",
+          flex: 1,
+          margin: 10,
+        },
+        textInput: {
+          backgroundColor: "transparent",
+          flex: 1,
+          margin: 10,
+          borderBottomWidth: 1,
+          borderBottomColor: "grey",
+        },
+      });
+      
+      export default withTheme(FeedScreen);
+
 }
