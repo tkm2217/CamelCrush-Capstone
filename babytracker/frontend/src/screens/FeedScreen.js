@@ -382,3 +382,12 @@ function FeedScreen({ theme, route }) {
           )}
         </View>
       );
+
+      const renderScene = SceneMap({
+        first: FirstRoute,
+        second: SecondRoute,
+      });
+      const [routes] = React.useState([
+        { key: "first", title: "BREAST" },
+        { key: "second", title: "BOTTLE" },
+      ]);
