@@ -6,3 +6,13 @@ const storeUser = async (user) => {
       console.log("error while storing user: " + error);
     }
   };
+
+  const readUser = async () => {
+    try {
+      const isAvailable = await secureStore.isAvailableAsync();
+      if (isAvailable) return await secureStore.getItemAsync(key);
+      else return null;
+    } catch (error) {
+      console.log("error while reading user: " + error);
+    }
+  };
