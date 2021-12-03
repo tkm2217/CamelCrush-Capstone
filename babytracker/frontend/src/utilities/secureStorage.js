@@ -1,3 +1,7 @@
+import * as secureStore from "expo-secure-store";
+
+const key = "authUser";
+
 const storeUser = async (user) => {
     try {
       const isAvailable = await secureStore.isAvailableAsync();
