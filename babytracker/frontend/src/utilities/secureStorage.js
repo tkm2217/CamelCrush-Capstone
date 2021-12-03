@@ -20,3 +20,12 @@ const storeUser = async (user) => {
       console.log("error while reading user: " + error);
     }
   };
+
+  const removeUser = async () => {
+    try {
+      const isAvailable = await secureStore.isAvailableAsync();
+      if (isAvailable) await secureStore.deleteItemAsync(key);
+    } catch (error) {
+      console.log("error while removing user: " + error);
+    }
+  };
