@@ -29,3 +29,9 @@ const storeUser = async (user) => {
       console.log("error while removing user: " + error);
     }
   };
+
+  export default {
+    storeUser,
+    readUser,
+    removeUser,
+  };
