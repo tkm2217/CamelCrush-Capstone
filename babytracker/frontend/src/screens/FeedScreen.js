@@ -391,3 +391,16 @@ function FeedScreen({ theme, route }) {
         { key: "first", title: "BREAST" },
         { key: "second", title: "BOTTLE" },
       ]);
+      return (
+        <>
+          <TabView
+            navigationState={{ index, routes }}
+            renderScene={renderScene}
+            onIndexChange={setIndex}
+            initialLayout={{ width: layout.width }}
+          />
+        </>
+      );
+    }
+
+}
