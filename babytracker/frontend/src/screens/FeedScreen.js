@@ -248,3 +248,137 @@ function FeedScreen({ theme, route }) {
           )}
         </View>
       );
+
+      const SecondRoute = () => (
+        <View style={{ flex: 1, backgroundColor: papercolors.background }}>
+          <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              onPress={() => setShowDate(true)}
+              style={styles.sectionContainer}
+            >
+              <Text style={{ marginVertical: 5, color: "grey" }}>
+                Date of feeding
+              </Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginBottom: 5,
+                }}
+              >
+                <Text style={{ color: darkTheme ? colors.white : colors.black }}>
+                  {date.toDateString()}
+                </Text>
+                <AntDesign
+                  name="caretdown"
+                  size={14}
+                  color={darkTheme ? colors.white : "grey"}
+                />
+              </View>
+            </TouchableOpacity>
+    
+            <TouchableOpacity
+              onPress={() => setShowTime(true)}
+              style={styles.sectionContainer}
+            >
+              <Text style={{ marginVertical: 5, color: "grey" }}>
+                Time of feeding
+              </Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginBottom: 5,
+                }}
+              >
+                <Text style={{ color: darkTheme ? colors.white : colors.black }}>
+                  {formatAMPM(time)}
+                </Text>
+                <AntDesign
+                  name="caretdown"
+                  size={14}
+                  color={darkTheme ? colors.white : "grey"}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+    
+          <Menu>
+            <MenuTrigger
+              customStyles={{
+                triggerWrapper: {
+                  borderBottomWidth: 1,
+                  borderBottomColor: "grey",
+                  margin: 10,
+                },
+              }}
+            >
+              <Text style={{ marginVertical: 5, color: "grey" }}>Quantity</Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginBottom: 5,
+                }}
+              >
+                <Text style={{ color: darkTheme ? colors.white : colors.black }}>
+                  {bottleQuantity ? bottleQuantity + " ML" : ""}
+                </Text>
+                <AntDesign
+                  name="caretdown"
+                  size={14}
+                  color={darkTheme ? colors.white : "grey"}
+                />
+              </View>
+            </MenuTrigger>
+    
+            <MenuOptions>
+              <MenuOption text="10 ML" onSelect={() => setBottleQuantity(10)} />
+              <MenuOption text="20 ML" onSelect={() => setBottleQuantity(20)} />
+              <MenuOption text="30 ML" onSelect={() => setBottleQuantity(30)} />
+              <MenuOption text="40 ML" onSelect={() => setBottleQuantity(40)} />
+              <MenuOption text="50 ML" onSelect={() => setBottleQuantity(50)} />
+              <MenuOption text="60 ML" onSelect={() => setBottleQuantity(60)} />
+              <MenuOption text="70 ML" onSelect={() => setBottleQuantity(70)} />
+              <MenuOption text="80 ML" onSelect={() => setBottleQuantity(80)} />
+              <MenuOption text="90 ML" onSelect={() => setBottleQuantity(90)} />
+              <MenuOption text="100 ML" onSelect={() => setBottleQuantity(100)} />
+            </MenuOptions>
+          </Menu>
+    
+          <Button
+            mode="contained"
+            onPress={() => handleSave("bottle")}
+            style={{
+              borderRadius: 20,
+              width: 200,
+              alignSelf: "center",
+              marginTop: 40,
+            }}
+          >
+            Save
+          </Button>
+    
+          {showDate && (
+            <DateTimePicker
+              value={date}
+              mode="date"
+              display="default"
+              onChange={onChangeDate}
+            />
+          )}
+    
+          {showTime && (
+            <DateTimePicker
+              value={time}
+              mode="time"
+              is24Hour={false}
+              display="default"
+              onChange={onChangeTime}
+            />
+          )}
+        </View>
+      );
