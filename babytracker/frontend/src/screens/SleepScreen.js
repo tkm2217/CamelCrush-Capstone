@@ -75,4 +75,157 @@ function SleepScreen({ theme, route }) {
     setShowEndTime(Platform.OS === "ios");
     setEndTime(currentTime);
   };
+  return (
+    <View style={{ flex: 1, backgroundColor: papercolors.background }}>
+      <View style={{ flexDirection: "row" }}>
+        <TouchableOpacity
+          onPress={() => setShowBeginDate(true)}
+          style={styles.sectionContainer}
+        >
+          <Text style={{ marginVertical: 5, color: "grey" }}>Begin date</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 5,
+            }}
+          >
+            <Text style={{ color: darkTheme ? colors.white : colors.black }}>
+              {beginDate.toDateString() || ""}
+            </Text>
+            <AntDesign
+              name="caretdown"
+              size={14}
+              color={darkTheme ? colors.white : "grey"}
+            />
+          </View>
+        </TouchableOpacity>
 
+        <TouchableOpacity
+          onPress={() => setShowBeginTime(true)}
+          style={styles.sectionContainer}
+        >
+          <Text style={{ marginVertical: 5, color: "grey" }}>Begin time</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 5,
+            }}
+          >
+            <Text style={{ color: darkTheme ? colors.white : colors.black }}>
+              {formatAMPM(beginTime) || ""}
+            </Text>
+            <AntDesign
+              name="caretdown"
+              size={14}
+              color={darkTheme ? colors.white : "grey"}
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <View style={{ flexDirection: "row" }}>
+        <TouchableOpacity
+          onPress={() => setShowEndDate(true)}
+          style={styles.sectionContainer}
+        >
+          <Text style={{ marginVertical: 5, color: "grey" }}>End date</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 5,
+            }}
+          >
+            <Text style={{ color: darkTheme ? colors.white : colors.black }}>
+              {endDate ? endDate.toDateString() : ""}
+            </Text>
+            <AntDesign
+              name="caretdown"
+              size={14}
+              color={darkTheme ? colors.white : "grey"}
+            />
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => setShowEndTime(true)}
+          style={styles.sectionContainer}
+        >
+          <Text style={{ marginVertical: 5, color: "grey" }}>End time</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 5,
+            }}
+          >
+            <Text style={{ color: darkTheme ? colors.white : colors.black }}>
+              {endTime ? formatAMPM(endTime) : ""}
+            </Text>
+            <AntDesign
+              name="caretdown"
+              size={14}
+              color={darkTheme ? colors.white : "grey"}
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <Button
+        mode="contained"
+        onPress={handleSave}
+        loading={loading}
+        style={{
+          borderRadius: 20,
+          width: 200,
+          alignSelf: "center",
+          marginTop: 40,
+        }}
+      >
+        Save
+      </Button>
+
+      {showBeginDate && (
+        <DateTimePicker
+          value={beginDate}
+          mode="date"
+          display="default"
+          onChange={onChangeBeginDate}
+        />
+      )}
+      {showEndDate && (
+        <DateTimePicker
+          value={endDate || new Date()}
+          mode="date"
+          display="default"
+          onChange={onChangeEndDate}
+        />
+      )}
+
+      {showBeginTime && (
+        <DateTimePicker
+          value={beginTime}
+          mode="time"
+          is24Hour={false}
+          display="default"
+          onChange={onChangeBeginTime}
+        />
+      )}
+      {showEndTime && (
+        <DateTimePicker
+          value={endTime || new Date()}
+          mode="time"
+          is24Hour={false}
+          display="default"
+          onChange={onChangeEndTime}
+        />
+      )}
+    </View>
+  );
+}
