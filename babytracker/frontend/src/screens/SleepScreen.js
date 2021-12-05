@@ -54,3 +54,25 @@ function SleepScreen({ theme, route }) {
         setLoading(false);
       });
   };
+  
+  const onChangeBeginDate = (event, selectedDate) => {
+    const currentDate = selectedDate || beginDate;
+    setShowBeginDate(Platform.OS === "ios");
+    setBeginDate(currentDate);
+  };
+  const onChangeEndDate = (event, selectedDate) => {
+    const currentDate = selectedDate || endDate;
+    setShowEndDate(Platform.OS === "ios");
+    setEndDate(currentDate);
+  };
+  const onChangeBeginTime = (event, selectedTime) => {
+    const currentTime = selectedTime || beginTime;
+    setShowBeginTime(Platform.OS === "ios");
+    setBeginTime(currentTime);
+  };
+  const onChangeEndTime = (event, selectedTime) => {
+    const currentTime = selectedTime || endTime;
+    setShowEndTime(Platform.OS === "ios");
+    setEndTime(currentTime);
+  };
+
